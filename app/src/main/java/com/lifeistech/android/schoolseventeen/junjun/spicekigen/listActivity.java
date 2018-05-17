@@ -30,15 +30,8 @@ import io.realm.RealmResults;
 
 public class listActivity extends AppCompatActivity {
     ListView list;
-    //ListView mListView;
     foodAdapter mFoodAdapter;
-//    ArrayList<Card> foodList;
-//    List<Card> readFoodList;
-    ArrayList<Food> FoodList;
     List<Food> readFoodList;
-    //List<Card> saveList;
-//    Card addCard;
-    Food addFood;
     Realm realm;
     SharedPreferences background;
     RelativeLayout activity_list;
@@ -51,13 +44,8 @@ public class listActivity extends AppCompatActivity {
         background = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
         int BackgroundColor = background.getInt("background", 0);
 
-        activity_list=(RelativeLayout) findViewById(R.id.activity_list);
+        activity_list = (RelativeLayout) findViewById(R.id.activity_list);
         activity_list.setBackgroundColor(BackgroundColor);
-
-        long exactdeadline = findViewById(R.id.);
-        long currentTimeMillis = System.currentTimeMillis();
-
-        long differenece = exactdeadline - currentTimeMillis;
 
         //Realmの宣言
         Realm.init(this);
@@ -76,11 +64,10 @@ public class listActivity extends AppCompatActivity {
         result1 = result1.sort("mdiffday"); // 昇順にソート
 
         //何個のfooodでも同じようにmfoodadapterに追加できる。
-        for (int foood = 0; foood < result1.size(); foood ++){
+        for (int foood = 0; foood < result1.size(); foood++) {
             Food value = new Food();
             value.setMtitle(result1.get(foood).getMtitle());
             value.setMdate(result1.get(foood).getMdate());
-            value.setMdiff(result1.get(foood).getMdiff());
             value.setMcontent(result1.get(foood).getMcontent());
             mFoodAdapter.add(value);
         }
@@ -88,7 +75,7 @@ public class listActivity extends AppCompatActivity {
         readFoodList = new ArrayList<>();
         readFile();
 
-        list = (ListView)findViewById(R.id.list);
+        list = (ListView) findViewById(R.id.list);
         list.setAdapter(mFoodAdapter);
 
         //ボタン
@@ -100,8 +87,8 @@ public class listActivity extends AppCompatActivity {
         });
 
         //TODO クリックしたらチェックボックスが各foodに現れる　選んでOKか何かを押して消す。
-        ImageButton DeleteButton = (ImageButton)findViewById(R.id.deletebutton);
-        DeleteButton.setOnClickListener(new View.OnClickListener(){
+        ImageButton DeleteButton = (ImageButton) findViewById(R.id.deletebutton);
+        DeleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //削除処理
 
@@ -194,8 +181,6 @@ public class listActivity extends AppCompatActivity {
 
         return true;
     }
-
-
 
 
 }

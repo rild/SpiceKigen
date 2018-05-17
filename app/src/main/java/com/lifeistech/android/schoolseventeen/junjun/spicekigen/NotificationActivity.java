@@ -12,7 +12,4 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     //notiswitchを押したら、５日前、３日目、前日、当日、切れた後は毎日　　通知する機能を、on/off調節する。(多くのユーザーはonにすると思うが)
-
-
-
 }

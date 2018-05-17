@@ -14,32 +14,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-//import static android.R.id.content;
-//import static android.R.id.title;
-//import static android.R.id.days;
-//import static android.R.id.diff;
-//import static com.example.junekelectric.shoumikigenlist.R.id.content;
-//import static com.example.junekelectric.shoumikigenlist.R.id.date;
-//import static com.example.junekelectric.shoumikigenlist.R.id.title;
-//import static com.example.junekelectric.shoumikigenlist.R.id.diff;
-
 /**
  * Created by junekelectric on 2017/01/27.
  */
 
 public class foodAdapter extends ArrayAdapter<Food> {
-    //Context context;
-    //List<Card> foodList;
     List<Food> FoodList;
     private LayoutInflater inflater;
-    int position = 1;
-
-//    public foodAdapter (Context context, int textViewResourceId, List<Card> cList) {
-//        super(context, textViewResourceId, cList);
-//        foodList = cList;
-//        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        this.foodList = foodList;
-//    }
 
 
     public foodAdapter (Context context, int textViewResourceId) {
@@ -47,23 +28,6 @@ public class foodAdapter extends ArrayAdapter<Food> {
         FoodList = new ArrayList<Food>();
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
-//    public foodAdapter (Context context, int layoutResourceId, List<Card> objects) {
-//        super(context, layoutResourceId, objects);
-//        foodList = objects;
-//        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        this.foodList = foodList;
-//    }
-
-//        @Override
-//        public int getCount () {
-//            return foodList.size();
-//        }
-//
-//        @Override
-//        public Card getItem (int position) {
-//            return foodList.get(position);
-//        }
 
     @Override
     public int getCount () {
@@ -74,10 +38,6 @@ public class foodAdapter extends ArrayAdapter<Food> {
     public Food getItem (int position) {
         return FoodList.get(position);
     }
-
-//        @Override
-//        public long getFoodId(int position){
-//            return 0;}
 
     @Override
     public void add (Food position) {
@@ -122,16 +82,6 @@ public class foodAdapter extends ArrayAdapter<Food> {
             //ここでtagを設定しないと落ちる　by単語帳教科書
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-
-            //以下はいらない
-//                TextView title = (TextView) convertView.findViewById(R.id.title);
-//                title.setText(listActivity.get(position).getTitle);
-//
-//                TextView date = (TextView) convertView.findViewById(R.id.date);
-//                date.setText(listActivity.get(position).getDate);
-//
-//                TextView content = (TextView) convertView.findViewById(R.id.content);
-//                content.setText(listActivity.get(position).getContent);
         }
 
 //        final Card item = getItem(position);
@@ -139,14 +89,9 @@ public class foodAdapter extends ArrayAdapter<Food> {
 
         if (item != null){
             //set data
-//            viewHolder.titleTv.setText(item.getTitle());
-//            viewHolder.contentTv.setText(item.getContent());
-//            viewHolder.daysTv.setText(item.getContent());
-//            viewHolder.diffTv.setText(String.valueOf(item.getDiffday()));
 
             viewHolder.titleTv.setText(item.getMtitle());
             viewHolder.daysTv.setText(item.getMdate());
-            viewHolder.diffTv.setText(String.valueOf(item.getMdiff()));
             viewHolder.contentTv.setText(item.getMcontent());
         }
         return convertView;

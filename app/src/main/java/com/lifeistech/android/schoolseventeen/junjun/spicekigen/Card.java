@@ -22,7 +22,6 @@ public class Card extends RealmObject {
         this.titleitem = title;
         this.dateitem = date;
         this.contentitem = content;
-       // this.diffday = diffday;
         this.exactdeadlineitem = exactdeadlineitem;
     }
 
@@ -48,20 +47,5 @@ public class Card extends RealmObject {
 
         public void setContent(String content) {
             this.contentitem = content;
-        }
-
-//        public long getDiffday() {
-//            return diffday;
-//        }
-//
-//        public void setDiffday(long diffday) {
-//            this.diffday = diffday;
-//        }
-
-        public long getExactdeadline() {
-            return exactdeadlineitem;
-        }
-        public void setExactdeadline() {
-            this.exactdeadlineitem = exactdeadlineitem;
         }
 }
